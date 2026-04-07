@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict Fertility Rate</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <!-- <a class="navbar-brand" href="#">Project</a> -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'predict_fertility_rate' %}" target="_blank">Predict</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+
+
+    <div class="container mt-5">
+        <h2>Predict Fertility Rate</h2>
+        <form method="post" action="{% url 'predict_fertility_rate' %}" class="mt-4">
+            {% csrf_token %}
+            
+            <!-- Bootstrap Input Form Group for Population(2023) -->
+            <div class="form-group">
+                <label for="population_2023">Population(2023):</label>
+                <input type="float" class="form-control" id="population_2023" name="population_2023" required>
+            </div>
+
+            <!-- Bootstrap Input Form Group for YearlyChange -->
+            <div class="form-group">
+                <label for="yearly_change">Yearly Change:</label>
+                <input type="float" step="0.01" class="form-control" id="yearly_change" name="yearly_change" required>
+            </div>
+
+            <!-- Bootstrap Input Form Group for NetChange -->
+            <div class="form-group">
+                <label for="net_change">Net Change:</label>
+                <input type="float" class="form-control" id="net_change" name="net_change" required>
+            </div>
+
+            <!-- Bootstrap Input Form Group for Density(P/Km²) -->
+            <div class="form-group">
+                <label for="density">Density(P/Km²):</label>
+                <input type="float" step="0.01" class="form-control" id="density" name="density" required>
+            </div>
+
+            <!-- Bootstrap Input Form Group for Land Area(Km²) -->
+            <div class="form-group">
+                <label for="land_area">Land Area(Km²):</label>
+                <input type="float" step="0.01" class="form-control" id="land_area" name="land_area" required>
+            </div>
+
+            <!-- Bootstrap Input Form Group for Migrants(net) -->
+            <div class="form-group">
+                <label for="migrants_net">Migrants(net):</label>
+                <input type="float" class="form-control" id="migrants_net" name="migrants_net" required>
+            </div>
+
+            <!-- Bootstrap Input Form Group for Med.Age -->
+            <div class="form-group">
+                <label for="med_age">Med.Age:</label>
+                <input type="float" step="0.01" class="form-control" id="med_age" name="med_age" required>
+            </div>
+
+            <!-- Bootstrap Input Form Group for UrbanPop % -->
+            <div class="form-group">
+                <label for="urban_pop">UrbanPop %:</label>
+                <input type="float" step="0.01" class="form-control" id="urban_pop" name="urban_pop" required>
+            </div>
+
+            <!-- Bootstrap Input Form Group for Fert. Rate -->
+            <div class="form-group">
+                <label for="fert_rate">Fert. Rate:</label>
+                <input type="float" step="0.01" class="form-control" id="fert_rate" name="fert_rate" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+
+        <!-- Display Prediction Result -->
+        
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js scripts here -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
